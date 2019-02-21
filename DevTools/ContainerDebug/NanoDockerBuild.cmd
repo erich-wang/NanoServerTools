@@ -9,7 +9,7 @@ set VS_CRT_REDIST_REL[1]="%VcToolsRedistDir%onecore\x64\Microsoft.VC150.CRT"
 set VS_CRT_REDIST_DBG[0]="%VcToolsRedistDir%onecore\debug_nonredist\x64\Microsoft.VC141.DebugCRT"
 set VS_CRT_REDIST_DBG[1]="%VcToolsRedistDir%onecore\debug_nonredist\x64\Microsoft.VC150.DebugCRT"
 
-set UCRT_DLL_PATH="%WindowsSdkBinPath%\x64\ucrt"
+set UCRT_DLL_PATH="%WindowsSdkVerBinPath%\x64\ucrt"
 
 set VS_OUT_DIR=%1
 set DockerImageName=nanodbg
@@ -99,6 +99,7 @@ echo Launching Nano Container...
 set dockerRunCmd=docker run ^
     -v %VS_OUT_DIR%:%VS_OUT_DIR% ^
     -d ^
+    -p 4022:4022
     %DockerImageName%
 
 
